@@ -1,0 +1,23 @@
+server:
+  port: 9999
+
+spring:
+  application:
+    name: api-gateway
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://${eureka.host:127.0.0.1}:${eureka.port:8000}/eureka/
+
+zuul:
+  routes:
+    uaa:
+      path: /auth/**
+      sensitiveHeaders:
+      serviceId: auth-server
+    order:
+      path: /order/**
+      sensitiveHeaders:
+      serviceId: order-server
+  add-proxy-headers: true

@@ -1,0 +1,17 @@
+server:
+  port: 8899
+
+security:
+  oauth2:
+    client:
+      clientId: client
+      clientSecret: password
+      accessTokenUri: http://localhost:9999/auth/oauth/token
+      userAuthorizationUri: http://localhost:9999/auth/oauth/authorize
+    resource:
+      userInfoUri: http://localhost:9999/auth/user
+      preferTokenInfo: false
+
+spring:
+  application:
+    name: third

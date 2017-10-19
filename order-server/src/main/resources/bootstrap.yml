@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: order-server
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://${eureka.host:127.0.0.1}:${eureka.port:8000}/eureka/
+
+security:
+  oauth2:
+    resource:
+      id: order-server
+      prefer-token-info: true
+      token-info-uri: http://localhost:8888/oauth/check_token
+
+
+
+server:
+  port: 7777
